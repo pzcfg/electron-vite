@@ -46,10 +46,11 @@
     "plugin"
   ],
   "scripts": {
+    "postinstall": "yarn install --ignore-scripts && yarn build",
     "format": "prettier --write .",
     "lint": "eslint --ext .ts src/**",
     "typecheck": "tsc --noEmit",
-    "build": "pnpm run lint && rollup -c rollup.config.ts --configPlugin typescript"
+    "build": "yarn run lint && rollup -c rollup.config.ts --configPlugin typescript"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
